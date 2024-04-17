@@ -22,7 +22,7 @@ spring:
     name: service-all
 
   datasource:
-    url: jdbc:mysql://47.99.136.24:3306/ziyunying?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/ziyunying?useSSL=false&serverTimezone=UTC
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver

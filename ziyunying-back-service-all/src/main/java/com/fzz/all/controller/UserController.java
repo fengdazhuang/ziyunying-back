@@ -54,6 +54,12 @@ public class UserController implements UserControllerApi {
     }
 
     @Override
+    public GraceJSONResult getUserInfo(Long id) {
+        AppUser user = appUserService.getById(id);
+        return GraceJSONResult.ok(user);
+    }
+
+    @Override
     public GraceJSONResult getDetaAddr(Long id) {
         Address address = addressService.getById(id);
         return GraceJSONResult.ok(address);

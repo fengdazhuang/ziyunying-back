@@ -1,6 +1,7 @@
 package com.fzz.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.util.Date;
@@ -25,8 +26,10 @@ public class OrderItem {
 
     private float totalAmount;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date basketDate;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date buyTime;
 
     private Integer isComment;

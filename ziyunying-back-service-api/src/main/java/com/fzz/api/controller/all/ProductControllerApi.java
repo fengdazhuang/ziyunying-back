@@ -35,7 +35,8 @@ public interface ProductControllerApi {
 
 
     @PostMapping("/updateStatus")
-    public GraceJSONResult updateStatus();
+    public GraceJSONResult updateStatus(@RequestParam Long id,
+                                        @RequestParam Integer status);
 
 
 

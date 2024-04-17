@@ -24,6 +24,9 @@ public interface UserControllerApi {
     @GetMapping("/logout")
     public GraceJSONResult logout();
 
+    @GetMapping("/getUserInfo")
+    public GraceJSONResult getUserInfo(@RequestParam Long id);
+
 
     @GetMapping("/getDetaAddr")
     public GraceJSONResult getDetaAddr(@RequestParam Long id);

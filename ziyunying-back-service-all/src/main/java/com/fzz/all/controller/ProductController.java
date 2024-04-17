@@ -1,6 +1,7 @@
 package com.fzz.all.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fzz.all.service.MyCollectionsService;
 import com.fzz.all.service.ProductService;
@@ -102,9 +103,18 @@ public class ProductController extends BaseController implements ProductControll
     }
 
     @Override
-    public GraceJSONResult updateStatus() {
-        return null;
+    public GraceJSONResult updateStatus(Long id, Integer status) {
+        LambdaUpdateWrapper<Product> updateWrapper=new LambdaUpdateWrapper<>();
+        updateWrapper.eq(Product::getProductId,id);
+        updateWrapper.set(Product::getStatus,status);
+        boolean update = productService.update(updateWrapper);
+        if(!update){
+            return GraceJSONResult.errorMsg("更新商品状态失败");
+        }
+        return GraceJSONResult.ok();
     }
+
+
 
     @Override
     public GraceJSONResult deleteProduct(String ids) {
